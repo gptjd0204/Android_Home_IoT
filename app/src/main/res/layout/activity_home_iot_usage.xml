@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:text="홈 IoT 사용량 조회"
+        android:textSize="46sp"
+        android:textStyle="bold"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        >
+        <TableRow>
+            <ImageView
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/lightbulb"
+                />
+            <LinearLayout
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/lightLogBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="로그 조회"
+                    android:textSize="20dp" />
+                <Button
+                    android:id="@+id/lightUsageBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="사용량 조회"
+                    android:textSize="20dp"
+                    />
+            </LinearLayout>
+
+
+
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="실내등"
+                android:textSize="20dp"
+                />
+        </TableRow>
+
+    </TableLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        >
+        <TableRow>
+            <ImageView
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/gas_valve"
+                />
+            <LinearLayout
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/gasLogBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="로그 조회"
+                    android:textSize="20dp" />
+                <Button
+                    android:id="@+id/gasUsageBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="사용량 조회"
+                    android:textSize="20dp"
+                    />
+            </LinearLayout>
+
+
+
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center"
+                android:text="가스 밸브"
+                android:textSize="20dp"
+                />
+        </TableRow>
+
+    </TableLayout>
+
+</LinearLayout>

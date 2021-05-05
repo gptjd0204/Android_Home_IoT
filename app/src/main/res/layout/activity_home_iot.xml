@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:text="홈 IoT 상태 조회"
+        android:textSize="46sp"
+        android:textStyle="bold"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        />
+
+
+    <Button
+        android:id="@+id/lightShadowBtn"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:background="@drawable/lightbulb"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="실내등"
+        android:textSize="20dp"
+        />
+
+
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        />
+
+    <Button
+        android:id="@+id/gasShadowBtn"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:background="@drawable/gas_valve"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="가스 밸브"
+        android:textSize="20dp"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        />
+    <Button
+        android:id="@+id/homeBtn"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="60dp"
+        android:text="메인화면"
+        android:textSize="20dp"
+        android:textColor="#0000ff"
+        />
+
+</LinearLayout>
