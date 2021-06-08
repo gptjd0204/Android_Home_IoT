@@ -3,12 +3,16 @@ package com.example.android_home_iot_smartmirror.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.android_home_iot_smartmirror.R;
 import com.example.android_home_iot_smartmirror.ui.apicall.GetGasShadow;
@@ -25,6 +29,7 @@ public class HomeGasActivity extends AppCompatActivity {
     String urlStr;
     final static String TAG = "AndroidAPITest";
     Timer timer;
+    Toolbar toolbar;
     //Button startGetBtn;
     //Button stopGetBtn;
     //Button homeGetBtn;
@@ -35,6 +40,11 @@ public class HomeGasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_gas);
         Intent intent = getIntent();
         urlStr = intent.getStringExtra("gasShadowURL");
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(""); //타이틀 없음
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
 
         timer = new Timer();
         timer.schedule(new TimerTask() {
@@ -179,5 +189,29 @@ public class HomeGasActivity extends AppCompatActivity {
     private void clearTextView() {
         TextView reported_gas = findViewById(R.id.reported_gas);
         reported_gas.setText("");
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_item, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings1:
+                Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_LONG).show();
+                return true;
+            case android.R.id.home: //toolbar의 back키 눌렀을 때 동작
+                if (timer != null)
+                    timer.cancel();
+                clearTextView();
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

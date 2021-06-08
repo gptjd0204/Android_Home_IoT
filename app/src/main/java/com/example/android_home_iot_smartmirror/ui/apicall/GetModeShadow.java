@@ -18,10 +18,10 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GetGasShadow extends GetRequest {
+public class GetModeShadow extends GetRequest {
     final static String TAG = "AndroidMyMKR1API";
     String urlStr;
-    public GetGasShadow(Activity activity, String urlStr) {
+    public GetModeShadow(Activity activity, String urlStr) {
         super(activity);
         this.urlStr = urlStr;
     }
@@ -46,18 +46,18 @@ public class GetGasShadow extends GetRequest {
         if (jsonString == null)
             return;
         Map<String, String> state = getStateFromJSONString(jsonString);
-        TextView reported_light = activity.findViewById(R.id.reported_gas);
-        ImageView light_drawable = activity.findViewById(R.id.gas_drawable);
+        TextView reported_mode = activity.findViewById(R.id.reported_mode);
+        //ImageView light_drawable = activity.findViewById(R.id.gas_drawable);
 
         // 아두이노 디바이스에 상태를 조회하여 가스밸브 상태 조회
-        if (state.get("reported_SERVO_STATE").equals("ON")){
-            light_drawable.setImageResource(R.drawable.gas_on);
-            reported_light.setText("가스밸브가 켜져있습니다");
-            reported_light.setTextColor(Color.parseColor("#17c217"));
+        if (state.get("reported_MIRROR_MODE").equals("DOOR")){
+            //light_drawable.setImageResource(R.drawable.gas_on);
+            reported_mode.setText("현재 현관 모드입니다");
+            reported_mode.setTextColor(Color.parseColor("#17c217"));
         } else {
-            light_drawable.setImageResource(R.drawable.gas_off);
-            reported_light.setText("가스밸브가 꺼져있습니다");
-            reported_light.setTextColor(Color.parseColor("#ff0000"));
+            //light_drawable.setImageResource(R.drawable.gas_off);
+            reported_mode.setText("현재 프리 모드입니다");
+            reported_mode.setTextColor(Color.parseColor("#ff0000"));
         }
     }
 
@@ -72,12 +72,12 @@ public class GetGasShadow extends GetRequest {
             JSONObject root = new JSONObject(jsonString);
             JSONObject state = root.getJSONObject("state");
             JSONObject reported = state.getJSONObject("reported");
-            String servoStateValue = reported.getString("SERVO_STATE");
-            output.put("reported_SERVO_STATE", servoStateValue);
+            String mirrorModeValue = reported.getString("MIRROR_MODE");
+            output.put("reported_MIRROR_MODE", mirrorModeValue);
 
             JSONObject desired = state.getJSONObject("desired");
-            String desired_servoStateValue = desired.getString("SERVO_STATE");
-            output.put("desired_SERVO_STATE", desired_servoStateValue);
+            String desired_mirrorModeValue = desired.getString("MIRROR_MODE");
+            output.put("desired_MIRROR_MODE", desired_mirrorModeValue);
 
 
         } catch (JSONException e) {

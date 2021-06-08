@@ -15,9 +15,9 @@
         android:textSize="30dp"
         android:textStyle="bold"
         android:layout_marginTop="10dp"
-        android:text="실내등 사용 로그 조회"
+        android:id="@+id/usage_text"
+        android:text="DAY 혹은 MONTH를 눌러 날짜를 설정하세요"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
 
     <TableLayout
         android:layout_width="match_parent"
@@ -25,26 +25,6 @@
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
         android:stretchColumns="*">
-
-        <TableRow
-            android:background="@color/colorLogTimeBackground">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:gravity="center"
-                android:text="조회 시작 날짜"
-                android:textColor="#ffffff"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:gravity="center"
-                android:text="조회 종료 날짜"
-                android:textColor="#ffffff"
-                android:textStyle="bold" />
-        </TableRow>
 
         <TableRow>
 
@@ -54,7 +34,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView_light_date1"
+                    android:id="@+id/textView_gas_date1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -69,7 +49,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView_light_date2"
+                    android:id="@+id/textView_gas_date2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -79,14 +59,6 @@
         </TableRow>
     </TableLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="DAY 혹은 MONTH를 눌러 날짜를 설정하세요"
-        android:textSize="20dp"
-        >
-    </TextView>
 
 
     <LinearLayout
@@ -94,7 +66,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <Button
-            android:id="@+id/light_day_button"
+            android:id="@+id/gas_day_button"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_weight="1"
@@ -102,7 +74,7 @@
 
 
         <Button
-            android:id="@+id/light_month_button"
+            android:id="@+id/gas_month_button"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_weight="1"
@@ -113,19 +85,19 @@
 
 
     <Button
-        android:id="@+id/light_log_start_button"
+        android:id="@+id/gas_log_start_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="로그 조회" />
+        android:text="사용량 조회" />
     <ListView
-        android:id="@+id/light_logList"
+        android:id="@+id/gas_logList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ff99ccee"
         android:textColor="#ff0000ff"
         android:textSize="12dp"></ListView>
     <TextView
-        android:id="@+id/light_message2"
+        android:id="@+id/gas_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

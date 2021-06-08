@@ -4,12 +4,18 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.example.android_home_iot_smartmirror.R;
 import com.example.android_home_iot_smartmirror.ui.apicall.GetLightLog;
 
@@ -17,6 +23,7 @@ import java.util.Calendar;
 
 public class HomeLightLogActivity extends AppCompatActivity {
     String getLightLogsURL;
+    Toolbar toolbar;
 
     private TextView textView_Date1;
     private TextView textView_Date2;
@@ -26,6 +33,11 @@ public class HomeLightLogActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_light_log);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("1번 실내등 로그 조회"); //타이틀 없음
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
 
         Intent intent = getIntent();
         getLightLogsURL = intent.getStringExtra("getLightLogsURL");
@@ -96,5 +108,26 @@ public class HomeLightLogActivity extends AppCompatActivity {
                 new GetLightLog(HomeLightLogActivity.this,getLightLogsURL).execute();
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_item, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings1:
+                Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_LONG).show();
+                return true;
+            case android.R.id.home: //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -41,6 +41,7 @@ abstract public class GetRequest extends AsyncTask<String, Void, String> {
             conn.setRequestMethod("GET");
             conn.setDoInput(true);
             conn.setDoOutput(false);
+            //conn.setDoOutput(true);
 
             int resCode = conn.getResponseCode();
 

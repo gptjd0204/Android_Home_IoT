@@ -2,16 +2,21 @@ package com.example.android_home_iot_smartmirror.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.android_home_iot_smartmirror.R;
 
 public class HomeIotActivity extends AppCompatActivity {
     String urlStr;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,9 +25,16 @@ public class HomeIotActivity extends AppCompatActivity {
         Intent intent = getIntent();
         urlStr = intent.getStringExtra("thingShadowURL");
 
+        // 툴바 생성
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("홈 IoT 상태 조회"); //타이틀 없음
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼
+
+
         // 홈 상태 조회 및 변경
-        Button lightShadowBtn = findViewById(R.id.lightShadowBtn);
-        lightShadowBtn.setOnClickListener(new View.OnClickListener() {
+        Button firstLightShadowBtn = findViewById(R.id.firstLightShadowBtn);
+        firstLightShadowBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //String urlstr = urlStr.concat("/MyMKR2");
@@ -31,10 +43,27 @@ public class HomeIotActivity extends AppCompatActivity {
                     Toast.makeText(HomeIotActivity.this, "실내등 상태 조회/변경 API URI 입력이 필요합니다.", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Intent intent = new Intent(HomeIotActivity.this, HomeLightActivity.class);
-                intent.putExtra("lightShadowURL", urlstr);
+                Intent intent = new Intent(HomeIotActivity.this, HomeFirstLightActivity.class);
+                //intent.putExtra("lightShadowURL", urlstr);
+                intent.putExtra("firstLightShadowURL", urlstr);
                 startActivity(intent);
 
+            }
+        });
+
+        Button secondLightShadowBtn = findViewById(R.id.secondLightShadowBtn);
+        secondLightShadowBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //String urlstr = urlStr.concat("/MyMKR2");
+                String urlstr = "https://peaypv7rkd.execute-api.ap-northeast-2.amazonaws.com/homeIoT/devices/MyMKR3";
+                if (urlstr == null || urlstr.equals("")) {
+                    Toast.makeText(HomeIotActivity.this, "실내등 상태 조회/변경 API URI 입력이 필요합니다.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                Intent intent = new Intent(HomeIotActivity.this, HomeSecondLightActivity.class);
+                intent.putExtra("secondLightShadowURL", urlstr);
+                startActivity(intent);
             }
         });
 
@@ -65,5 +94,29 @@ public class HomeIotActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.home_iot_name, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings1:
+                Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_LONG).show();
+                return true;
+            case android.R.id.home: //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            case R.id.action_name_setting: //toolbar의 back키 눌렀을 때 동작
+                Toast.makeText(getApplicationContext(), "이름 수정 화면", Toast.LENGTH_LONG).show();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

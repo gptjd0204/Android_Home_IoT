@@ -17,12 +17,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.android_home_iot_smartmirror.R;
-import com.example.android_home_iot_smartmirror.ui.apicall.GetGasLog;
+import com.example.android_home_iot_smartmirror.ui.apicall.GetLightUsage;
 
 import java.util.Calendar;
 
-public class HomeGasLogActivity extends AppCompatActivity {
-    String getGasLogsURL;
+public class HomeSecondLightUsageActivity extends AppCompatActivity {
+    String getLightLogsURL;
     Toolbar toolbar;
 
     private TextView textView_Date1;
@@ -32,20 +32,20 @@ public class HomeGasLogActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gas_log);
+        setContentView(R.layout.activity_light_usage);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("가스 밸브 사용량 조회"); //타이틀 없음
+        getSupportActionBar().setTitle("2번 실내등 사용량 조회"); //타이틀 없음
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
 
         Intent intent = getIntent();
-        getGasLogsURL = intent.getStringExtra("getGasLogsURL");
-        Log.i(TAG, "getGasLogsURL="+getGasLogsURL);
+        getLightLogsURL = intent.getStringExtra("getSecondLightLogsURL");
+        Log.i(TAG, "getSecondLightLogsURL="+getLightLogsURL);
 
         // 일별 실내등 사용 시간 로그 조회
-        Button gasDayBtn = findViewById(R.id.gas_day_button);
-        gasDayBtn.setOnClickListener(new View.OnClickListener() {
+        Button lightDayBtn = findViewById(R.id.light_day_button);
+        lightDayBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 callbackMethod = new DatePickerDialog.OnDateSetListener()
@@ -55,8 +55,8 @@ public class HomeGasLogActivity extends AppCompatActivity {
                     {
 
                         // 사용자가 입력한 조회 시작 시간과 조회 종료 시간 표시
-                        textView_Date1 = (TextView)findViewById(R.id.textView_gas_date1);
-                        textView_Date2 = (TextView)findViewById(R.id.textView_gas_date2);
+                        textView_Date1 = (TextView)findViewById(R.id.textView_light_date1);
+                        textView_Date2 = (TextView)findViewById(R.id.textView_light_date2);
                         textView_Date1.setText(String.format("%d-%d-%d ", year ,monthOfYear+1,dayOfMonth)+"00:00:00");
                         textView_Date2.setText(String.format("%d-%d-%d ", year ,monthOfYear+1,dayOfMonth)+ "23:59:59");
                     }
@@ -66,15 +66,15 @@ public class HomeGasLogActivity extends AppCompatActivity {
                 int month = calendar.get(Calendar.MONTH);
                 int day = calendar.get(Calendar.DAY_OF_MONTH);
 
-                DatePickerDialog dialog = new DatePickerDialog(HomeGasLogActivity.this, callbackMethod, year, month, day);
+                DatePickerDialog dialog = new DatePickerDialog(HomeSecondLightUsageActivity.this, callbackMethod, year, month, day);
 
                 dialog.show();
             }
         });
 
         // 월별 실내등 사용 시간 로그 조회
-        Button gasMonthBtn = findViewById(R.id.gas_month_button);
-        gasMonthBtn.setOnClickListener(new View.OnClickListener() {
+        Button lightMonthBtn = findViewById(R.id.light_month_button);
+        lightMonthBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -86,8 +86,8 @@ public class HomeGasLogActivity extends AppCompatActivity {
                         calendar.set(Calendar.MONTH, monthOfYear-1);
 
                         // 사용자가 입력한 조회 시작 시간과 조회 종료 시간 표시
-                        textView_Date1 = (TextView)findViewById(R.id.textView_gas_date1);
-                        textView_Date2 = (TextView)findViewById(R.id.textView_gas_date2);
+                        textView_Date1 = (TextView)findViewById(R.id.textView_light_date1);
+                        textView_Date2 = (TextView)findViewById(R.id.textView_light_date2);
                         textView_Date1.setText(String.format("%d-%d-%d ", year,monthOfYear, dayOfMonth)+"00:00:00");
                         textView_Date2.setText(String.format("%d-%d-%d ", year,monthOfYear, calendar.getActualMaximum(Calendar.DAY_OF_MONTH))+ "23:59:59");
                     }
@@ -101,11 +101,11 @@ public class HomeGasLogActivity extends AppCompatActivity {
 
 
         // 실내등 사용 시간 로그 조회 시작
-        Button start = findViewById(R.id.gas_log_start_button);
+        Button start = findViewById(R.id.light_log_start_button);
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new GetGasLog(HomeGasLogActivity.this,getGasLogsURL).execute();
+                new GetLightUsage(HomeSecondLightUsageActivity.this,getLightLogsURL).execute();
             }
         });
     }

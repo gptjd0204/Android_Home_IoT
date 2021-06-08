@@ -2,6 +2,8 @@ package com.example.android_home_iot_smartmirror.ui.apicall;
 
 import android.app.Activity;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -9,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.android_home_iot_smartmirror.R;
 import com.example.android_home_iot_smartmirror.httpconnection.GetRequest;
+import com.example.android_home_iot_smartmirror.ui.HomeGasUsageActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;

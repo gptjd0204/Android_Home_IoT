@@ -4,12 +4,17 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.android_home_iot_smartmirror.R;
 import com.example.android_home_iot_smartmirror.ui.apicall.GetGasUsage;
@@ -18,15 +23,28 @@ import java.util.Calendar;
 
 public class HomeGasUsageActivity extends AppCompatActivity {
     String getGasLogsURL;
+    Toolbar toolbar;
 
     private TextView textView_Date1;
     private TextView textView_Date2;
+    private TextView textView_Date;
     private DatePickerDialog.OnDateSetListener callbackMethod;
     final static String TAG = "AndroidAPITest";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gas_usage);
+
+        //textView_Date1 = (TextView)findViewById(R.id.textView_gas_date1);
+       // textView_Date2 = (TextView)findViewById(R.id.textView_gas_date2);
+       // textView_Date1.setVisibility(View.INVISIBLE);
+        //textView_Date2.setVisibility(View.INVISIBLE);
+
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("가스 사용량 조회"); //타이틀 없음
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
 
         Intent intent = getIntent();
         getGasLogsURL = intent.getStringExtra("getGasLogsURL");
@@ -48,6 +66,9 @@ public class HomeGasUsageActivity extends AppCompatActivity {
                         textView_Date2 = (TextView)findViewById(R.id.textView_gas_date2);
                         textView_Date1.setText(String.format("%d-%d-%d ", year ,monthOfYear+1,dayOfMonth)+"00:00:00");
                         textView_Date2.setText(String.format("%d-%d-%d ", year ,monthOfYear+1,dayOfMonth)+ "23:59:59");
+
+                        //textView_Date = (TextView)findViewById(R.id.usage_text);
+                        //textView_Date.setText(String.format("%d년 %d월 %d일 가스 사용량", year ,monthOfYear+1,dayOfMonth));
                     }
                 };
                 Calendar calendar = Calendar.getInstance();
@@ -79,6 +100,9 @@ public class HomeGasUsageActivity extends AppCompatActivity {
                         textView_Date2 = (TextView)findViewById(R.id.textView_gas_date2);
                         textView_Date1.setText(String.format("%d-%d-%d ", year,monthOfYear, dayOfMonth)+"00:00:00");
                         textView_Date2.setText(String.format("%d-%d-%d ", year,monthOfYear, calendar.getActualMaximum(Calendar.DAY_OF_MONTH))+ "23:59:59");
+
+                       // textView_Date = (TextView)findViewById(R.id.usage_text);
+                       // textView_Date.setText(String.format("%d년 %d월 가스 사용량", year ,monthOfYear));
                     }
                 };
 
@@ -97,5 +121,26 @@ public class HomeGasUsageActivity extends AppCompatActivity {
                 new GetGasUsage(HomeGasUsageActivity.this,getGasLogsURL).execute();
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_item, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_settings1:
+                Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_LONG).show();
+                return true;
+            case android.R.id.home: //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

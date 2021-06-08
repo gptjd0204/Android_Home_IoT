@@ -18,15 +18,14 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-public class GetGasShadow extends GetRequest {
-    final static String TAG = "AndroidMyMKR1API";
+public class GetMemo extends GetRequest {
+    final static String TAG = "AndroidMyMKR2API";
     String urlStr;
-    public GetGasShadow(Activity activity, String urlStr) {
+    public GetMemo(Activity activity, String urlStr) {
         super(activity);
         this.urlStr = urlStr;
     }
 
-    // 충격 감지 상태 조회
 
     @Override
     protected void onPreExecute() {
@@ -41,22 +40,23 @@ public class GetGasShadow extends GetRequest {
         }
     }
 
+    /*
     @Override
     protected void onPostExecute(String jsonString) {
         if (jsonString == null)
             return;
         Map<String, String> state = getStateFromJSONString(jsonString);
-        TextView reported_light = activity.findViewById(R.id.reported_gas);
-        ImageView light_drawable = activity.findViewById(R.id.gas_drawable);
+        TextView reported_light = activity.findViewById(R.id.reported_light);
+        ImageView light_drawable = activity.findViewById(R.id.light_drawable);
 
-        // 아두이노 디바이스에 상태를 조회하여 가스밸브 상태 조회
+        // 아두이노 디바이스에 상태를 조회하여 실내등 상태 조회
         if (state.get("reported_SERVO_STATE").equals("ON")){
-            light_drawable.setImageResource(R.drawable.gas_on);
-            reported_light.setText("가스밸브가 켜져있습니다");
+            light_drawable.setImageResource(R.drawable.lightbulb_on);
+            reported_light.setText("실내등이 켜져있습니다");
             reported_light.setTextColor(Color.parseColor("#17c217"));
         } else {
-            light_drawable.setImageResource(R.drawable.gas_off);
-            reported_light.setText("가스밸브가 꺼져있습니다");
+            light_drawable.setImageResource(R.drawable.lightbulb);
+            reported_light.setText("실내등이 꺼져있습니다");
             reported_light.setTextColor(Color.parseColor("#ff0000"));
         }
     }
@@ -86,4 +86,6 @@ public class GetGasShadow extends GetRequest {
         }
         return output;
     }
+    */
 }
+
