@@ -36,12 +36,13 @@ public class HomeLightUsageActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("1번 실내등 사용량 조회"); //타이틀 없음
+        getSupportActionBar().setTitle("거실 실내등 사용량 조회"); //타이틀 없음
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
 
         Intent intent = getIntent();
         getLightLogsURL = intent.getStringExtra("getLightLogsURL");
         Log.i(TAG, "getLightLogsURL="+getLightLogsURL);
+
 
         // 일별 실내등 사용 시간 로그 조회
         Button lightDayBtn = findViewById(R.id.light_day_button);
@@ -114,15 +115,19 @@ public class HomeLightUsageActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_item, menu);
+        menuInflater.inflate(R.menu.home_iot_log, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_settings1:
-                Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_LONG).show();
+            case R.id.log_setting:
+                String urlstr = "https://peaypv7rkd.execute-api.ap-northeast-2.amazonaws.com/homeIoT/devices/MyMKR2/firstlightlog";
+
+                Intent intent = new Intent(HomeLightUsageActivity.this, HomeLightLogActivity.class);
+                intent.putExtra("getLightLogsURL", urlstr);
+                startActivity(intent);
                 return true;
             case android.R.id.home: //toolbar의 back키 눌렀을 때 동작
                 finish();

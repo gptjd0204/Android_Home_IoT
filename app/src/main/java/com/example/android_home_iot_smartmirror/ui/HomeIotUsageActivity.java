@@ -27,9 +27,9 @@ public class HomeIotUsageActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(""); //타이틀 없음
+        getSupportActionBar().setTitle("홈 IoT 사용량 조회"); //타이틀 없음
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
-
+/*
         // 실내등 로그 조회
         Button lightLogBtn = findViewById(R.id.lightLogBtn);
         lightLogBtn.setOnClickListener(new View.OnClickListener() {
@@ -47,7 +47,7 @@ public class HomeIotUsageActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+*/
         // 실내등 사용량 조회
         Button lightUsageBtn = findViewById(R.id.lightUsageBtn);
         lightUsageBtn.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +65,7 @@ public class HomeIotUsageActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+/*
         // 2번 실내등 로그 조회
         Button secondLightLogBtn = findViewById(R.id.secondLightLogBtn);
         secondLightLogBtn.setOnClickListener(new View.OnClickListener() {
@@ -83,7 +83,7 @@ public class HomeIotUsageActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+*/
         // 2번 실내등 사용량 조회
         Button secondLightUsageBtn = findViewById(R.id.secondLightUsageBtn);
         secondLightUsageBtn.setOnClickListener(new View.OnClickListener() {
@@ -101,7 +101,7 @@ public class HomeIotUsageActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+/*
         // 가스 로그 조회
         Button gasLogBtn = findViewById(R.id.gasLogBtn);
         gasLogBtn.setOnClickListener(new View.OnClickListener() {
@@ -119,7 +119,7 @@ public class HomeIotUsageActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+*/
         // 가스 사용량 조회
         Button gasUsageBtn = findViewById(R.id.gasUsageBtn);
         gasUsageBtn.setOnClickListener(new View.OnClickListener() {
@@ -140,20 +140,10 @@ public class HomeIotUsageActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_item, menu);
-        return true;
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_settings1:
-                Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_LONG).show();
-                return true;
             case android.R.id.home: //toolbar의 back키 눌렀을 때 동작
                 finish();
                 return true;

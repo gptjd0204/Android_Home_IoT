@@ -47,7 +47,7 @@ public class AddMemoActivitiy extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(""); //타이틀 없음
+        getSupportActionBar().setTitle("메모 추가 및 삭제"); //타이틀 없음
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
 
 
@@ -78,12 +78,29 @@ public class AddMemoActivitiy extends AppCompatActivity {
             }
         });
 
-        Button mainHomeBtn = findViewById(R.id.homeBtn);
-        mainHomeBtn.setOnClickListener(new View.OnClickListener() {
+        Button deleteMemoBtn = findViewById(R.id.deleteMemoBtn);
+        deleteMemoBtn.setOnClickListener(new View.OnClickListener() {
+            EditText ip = (EditText)findViewById(R.id.ipAddress);
+            EditText memo = (EditText)findViewById(R.id.memo);
+
+
+
+            //String urlStr = "http://" + test1 + ":8080/AddMemo?memoTitle=일정&item=" + test2 +"&level=INFO";
+            /*String urlStr = new StringBuilder()
+                    .append("http://")
+                    .append(test1)
+                    .append(":8080/AddMemo?memoTitle=일정&item=")
+                    .append(test2)
+                    .append("&level=INFO").toString();*/
+
+
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AddMemoActivitiy.this, MainActivity.class);
-                startActivity(intent);
+                String test1 = ip.getText().toString();
+                urlStr = "http://" + test1 + ":8080/RemoveMemo?memoTitle=일정&numbers&item=1";
+                new GetMemo(AddMemoActivitiy.this, urlStr).execute();
+                //requestHttpGet(urlStr);
+                Toast.makeText(getApplicationContext(),urlStr, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -116,20 +133,11 @@ public class AddMemoActivitiy extends AppCompatActivity {
         return null;
     }
 */
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
 
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_item, menu);
-        return true;
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_settings1:
-                Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_LONG).show();
-                return true;
             case android.R.id.home: //toolbar의 back키 눌렀을 때 동작
                 finish();
                 return true;

@@ -59,12 +59,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:gravity="center"
-                android:text="1번 실내등"
+                android:background="@drawable/rounded_rectangle_v2"
+                android:textColor="#ffffff"
+                android:text="거실 실내등"
                 android:textSize="20dp"
                 />
 
             <View
-                android:layout_width="20dp"
+                android:layout_width="30dp"
                 android:layout_height="match_parent"
                 />
 
@@ -73,14 +75,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:gravity="center"
-                android:text="2번 실내등"
+                android:background="@drawable/rounded_rectangle_v2"
+                android:textColor="#ffffff"
+                android:text="1번방 실내등"
                 android:textSize="20dp"
                 />
 
         </TableRow>
         <View
             android:layout_width="match_parent"
-            android:layout_height="15dp"
+            android:layout_height="30dp"
             />
 
         <TableRow
@@ -99,36 +103,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:gravity="center"
+                android:background="@drawable/rounded_rectangle_v2"
+                android:textColor="#ffffff"
                 android:text="가스 밸브"
                 android:textSize="20dp"
                 />
         </TableRow>
 
-
     </TableLayout>
-
-
-
-
-
-
-
-
-
-
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        />
-    <Button
-        android:id="@+id/homeBtn"
-        android:layout_width="wrap_content"
-        android:layout_gravity="center"
-        android:layout_height="60dp"
-        android:text="메인화면"
-        android:textSize="20dp"
-        android:textColor="#0000ff"
-        />
 
 </LinearLayout>

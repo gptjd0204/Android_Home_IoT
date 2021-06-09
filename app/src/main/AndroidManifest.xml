@@ -28,6 +28,8 @@
         <activity android:name=".ui.HomeGasActivity" />
         <activity android:name=".ui.MirrorModeActivity" />
         <activity android:name=".ui.AddMemoActivitiy" />
+        <activity android:name=".ui.LoadingActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

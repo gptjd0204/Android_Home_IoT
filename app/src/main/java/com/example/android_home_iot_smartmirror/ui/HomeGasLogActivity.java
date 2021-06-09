@@ -36,7 +36,7 @@ public class HomeGasLogActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("가스 밸브 사용량 조회"); //타이틀 없음
+        getSupportActionBar().setTitle("가스 사용 로그 조회"); //타이틀 없음
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
 
         Intent intent = getIntent();
@@ -110,20 +110,10 @@ public class HomeGasLogActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_item, menu);
-        return true;
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_settings1:
-                Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_LONG).show();
-                return true;
             case android.R.id.home: //toolbar의 back키 눌렀을 때 동작
                 finish();
                 return true;

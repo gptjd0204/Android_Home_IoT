@@ -40,7 +40,7 @@ public class HomeSecondLightActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("2번 실내등"); //타이틀 없음
+        getSupportActionBar().setTitle("1번방 실내등 상태"); //타이틀 없음
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
 
         timer = new Timer();
@@ -122,32 +122,6 @@ public class HomeSecondLightActivity extends AppCompatActivity {
             }
         });
 
-        Button homeIotBtn = findViewById(R.id.homeIotBtn);
-        homeIotBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (timer != null)
-                    timer.cancel();
-                clearTextView();
-
-                Intent intent = new Intent(HomeSecondLightActivity.this, HomeIotActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        Button mainHomeBtn = findViewById(R.id.homeBtn);
-        mainHomeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (timer != null)
-                    timer.cancel();
-                clearTextView();
-
-                Intent intent = new Intent(HomeSecondLightActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
-
 
     }
 
@@ -156,20 +130,10 @@ public class HomeSecondLightActivity extends AppCompatActivity {
         reported_light.setText("");
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_item, menu);
-        return true;
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_settings1:
-                Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_LONG).show();
-                return true;
             case android.R.id.home: //toolbar의 back키 눌렀을 때 동작
                 if (timer != null)
                     timer.cancel();

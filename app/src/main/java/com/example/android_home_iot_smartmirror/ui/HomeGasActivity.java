@@ -43,7 +43,7 @@ public class HomeGasActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(""); //타이틀 없음
+        getSupportActionBar().setTitle("가스 밸브 상태"); //타이틀 없음
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
 
         timer = new Timer();
@@ -54,39 +54,7 @@ public class HomeGasActivity extends AppCompatActivity {
                            }
                        },
                 0,2000);
-        /*
-        startGetBtn = findViewById(R.id.startGetBtn);
-        startGetBtn.setEnabled(true);
-        startGetBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                timer = new Timer();
-                timer.schedule(new TimerTask() {
-                                   @Override
-                                   public void run() {
-                                       new GetLightShadow(HomeLightActivity.this, urlStr).execute();
-                                   }
-                               },
-                        0,2000);
 
-                startGetBtn.setEnabled(false);
-                stopGetBtn.setEnabled(true);
-            }
-        });
-
-        stopGetBtn = findViewById(R.id.stopGetBtn);
-        stopGetBtn.setEnabled(false);
-        stopGetBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (timer != null)
-                    timer.cancel();
-                clearTextView();
-                startGetBtn.setEnabled(true);
-                stopGetBtn.setEnabled(false);
-            }
-        });
-*/
         // 앱에서 충격 감지 실행 (아두이노 디바이스 제어)
         Button updateRunBtn = findViewById(R.id.updateRunBtn);
         updateRunBtn.setOnClickListener(new View.OnClickListener() {
@@ -157,33 +125,6 @@ public class HomeGasActivity extends AppCompatActivity {
             }
         });
 
-        Button homeIotBtn = findViewById(R.id.homeIotBtn);
-        homeIotBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (timer != null)
-                    timer.cancel();
-                clearTextView();
-
-                Intent intent = new Intent(HomeGasActivity.this, HomeIotActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        Button mainHomeBtn = findViewById(R.id.homeBtn);
-        mainHomeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (timer != null)
-                    timer.cancel();
-                clearTextView();
-
-                Intent intent = new Intent(HomeGasActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
-
-
     }
 
     private void clearTextView() {
@@ -191,20 +132,10 @@ public class HomeGasActivity extends AppCompatActivity {
         reported_gas.setText("");
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_item, menu);
-        return true;
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_settings1:
-                Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_LONG).show();
-                return true;
             case android.R.id.home: //toolbar의 back키 눌렀을 때 동작
                 if (timer != null)
                     timer.cancel();

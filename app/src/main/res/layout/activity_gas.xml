@@ -17,28 +17,7 @@
         android:layout_marginTop="10dp"
         android:text="가스 밸브"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-    <!--
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="조회 시작"
-                android:id = "@+id/startGetBtn"
-                />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="조회 종료"
-                android:id = "@+id/stopGetBtn"
-                />
-        </LinearLayout>
-    -->
+
     <ImageView
         android:id="@+id/gas_drawable"
         android:layout_width="wrap_content"
@@ -48,10 +27,6 @@
         android:src="@drawable/gas_off"
         />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="15dp"
-        />
 
     <TextView
         android:id="@+id/reported_gas"
@@ -66,7 +41,7 @@
     <View
         android:id="@+id/divider"
         android:layout_width="match_parent"
-        android:layout_height="19dp" />
+        android:layout_height="30dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -74,43 +49,31 @@
         android:orientation="horizontal">
 
         <Button
+            android:background="@drawable/rounded_rectangle_solid"
+            android:textColor="#ffffff"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_weight="1"
+            android:layout_marginLeft="10dp"
             android:text="켜 기"
             android:textSize="25sp"
             android:id = "@+id/updateRunBtn"
             />
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent" />
         <Button
+            android:background="@drawable/rounded_rectangle_solid"
+            android:textColor="#ffffff"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_weight="1"
+            android:layout_marginRight="10dp"
             android:text="끄 기"
             android:textSize="25sp"
             android:id = "@+id/updateStopBtn"
             />
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="30dp" />
 
-    <Button
-        android:id="@+id/homeIotBtn"
-        android:layout_width="wrap_content"
-        android:layout_gravity="center"
-        android:layout_height="60dp"
-        android:text="홈 IoT 상태 조회"
-        android:textSize="20dp"
-        android:textColor="#0000ff"
-        />
-    <Button
-        android:id="@+id/homeBtn"
-        android:layout_width="wrap_content"
-        android:layout_gravity="center"
-        android:layout_height="60dp"
-        android:text="메인 화면"
-        android:textSize="20dp"
-        android:textColor="#0000ff"
-        />
 </LinearLayout>

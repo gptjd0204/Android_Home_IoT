@@ -27,6 +27,7 @@ public class HomeSecondLightUsageActivity extends AppCompatActivity {
 
     private TextView textView_Date1;
     private TextView textView_Date2;
+
     private DatePickerDialog.OnDateSetListener callbackMethod;
     final static String TAG = "AndroidAPITest";
     @Override
@@ -36,7 +37,7 @@ public class HomeSecondLightUsageActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("2번 실내등 사용량 조회"); //타이틀 없음
+        getSupportActionBar().setTitle("1번방 실내등 사용량 조회"); //타이틀 없음
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
 
         Intent intent = getIntent();
@@ -114,15 +115,19 @@ public class HomeSecondLightUsageActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_item, menu);
+        menuInflater.inflate(R.menu.home_iot_log, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_settings1:
-                Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_LONG).show();
+            case R.id.log_setting:
+                String urlstr = "https://peaypv7rkd.execute-api.ap-northeast-2.amazonaws.com/homeIoT/devices/MyMKR3/secondlightlog";
+
+                Intent intent = new Intent(HomeSecondLightUsageActivity.this, HomeSecondLightLogActivity.class);
+                intent.putExtra("getSecondLightLogsURL", urlstr);
+                startActivity(intent);
                 return true;
             case android.R.id.home: //toolbar의 back키 눌렀을 때 동작
                 finish();

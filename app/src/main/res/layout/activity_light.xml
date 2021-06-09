@@ -15,30 +15,9 @@
         android:textSize="30dp"
         android:textStyle="bold"
         android:layout_marginTop="10dp"
-        android:text="실내등"
+        android:text="거실 실내등"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-<!--
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="조회 시작"
-            android:id = "@+id/startGetBtn"
-            />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="조회 종료"
-            android:id = "@+id/stopGetBtn"
-            />
-    </LinearLayout>
--->
+
     <ImageView
         android:id="@+id/light_drawable"
         android:layout_width="wrap_content"
@@ -75,14 +54,19 @@
         android:orientation="horizontal">
 
         <Button
+            android:background="@drawable/rounded_rectangle_solid"
+            android:textColor="#ffffff"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_weight="1"
             android:text="켜 기"
             android:textSize="25sp"
+
             android:id = "@+id/updateRunBtn"
             />
         <Button
+            android:background="@drawable/rounded_rectangle_solid"
+            android:textColor="#ffffff"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_weight="1"
@@ -91,6 +75,7 @@
             android:id = "@+id/updateStopBtn"
             />
     </LinearLayout>
+
 
     <View
         android:layout_width="match_parent"

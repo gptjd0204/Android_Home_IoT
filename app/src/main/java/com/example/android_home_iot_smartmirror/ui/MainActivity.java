@@ -16,18 +16,12 @@ import com.example.android_home_iot_smartmirror.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    Toolbar toolbar;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(""); //타이틀 없음
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
-
+        Intent intent = new Intent(this, LoadingActivity.class);
+        startActivity(intent);
 
         // 홈 상태 조회 및 변경
         Button thingShadowBtn = findViewById(R.id.thingShadowBtn);
@@ -88,26 +82,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_item, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_settings1:
-                Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_LONG).show();
-                return true;
-            case android.R.id.home: //toolbar의 back키 눌렀을 때 동작
-                finish();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 }

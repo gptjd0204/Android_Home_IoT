@@ -47,17 +47,17 @@ public class GetModeShadow extends GetRequest {
             return;
         Map<String, String> state = getStateFromJSONString(jsonString);
         TextView reported_mode = activity.findViewById(R.id.reported_mode);
-        //ImageView light_drawable = activity.findViewById(R.id.gas_drawable);
+        ImageView mode_drawable = activity.findViewById(R.id.mode_drawable);
 
         // 아두이노 디바이스에 상태를 조회하여 가스밸브 상태 조회
         if (state.get("reported_MIRROR_MODE").equals("DOOR")){
-            //light_drawable.setImageResource(R.drawable.gas_on);
-            reported_mode.setText("현재 현관 모드입니다");
-            reported_mode.setTextColor(Color.parseColor("#17c217"));
+            mode_drawable.setImageResource(R.drawable.door);
+            reported_mode.setText("현관 모드");
+            //reported_mode.setTextColor(Color.parseColor("#17c217"));
         } else {
-            //light_drawable.setImageResource(R.drawable.gas_off);
-            reported_mode.setText("현재 프리 모드입니다");
-            reported_mode.setTextColor(Color.parseColor("#ff0000"));
+            mode_drawable.setImageResource(R.drawable.simplemirror);
+            reported_mode.setText("심플 모드");
+            //reported_mode.setTextColor(Color.parseColor("#ff0000"));
         }
     }
 

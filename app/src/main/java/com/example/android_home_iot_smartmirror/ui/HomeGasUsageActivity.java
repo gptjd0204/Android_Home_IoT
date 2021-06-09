@@ -127,15 +127,23 @@ public class HomeGasUsageActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_item, menu);
+        menuInflater.inflate(R.menu.home_iot_log, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_settings1:
-                Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_LONG).show();
+            case R.id.log_setting:
+                String urlstr = "https://peaypv7rkd.execute-api.ap-northeast-2.amazonaws.com/homeIoT/devices/MyMKR1/gasvalvelog";
+                /*
+                if (urlstr == null || urlstr.equals("")) {
+                    Toast.makeText(HomeGasUsageActivity.this, "가스밸브 로그 조회 API URI 입력이 필요합니다.", Toast.LENGTH_SHORT).show();
+                    return;
+                }*/
+                Intent intent = new Intent(HomeGasUsageActivity.this, HomeGasLogActivity.class);
+                intent.putExtra("getGasLogsURL", urlstr);
+                startActivity(intent);
                 return true;
             case android.R.id.home: //toolbar의 back키 눌렀을 때 동작
                 finish();

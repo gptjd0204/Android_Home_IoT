@@ -7,11 +7,16 @@
     android:orientation="vertical"
     tools:context=".ui.MainActivity">
 
-
+<!--
     <include
         layout="@layout/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,14 +28,20 @@
         android:textStyle="bold"
         />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="15dp"
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:src="@drawable/mirror"
         />
 
     <Button
         android:id="@+id/thingShadowBtn"
-        android:layout_width="match_parent"
+        android:background="@drawable/rounded_rectangle_solid"
+        android:textColor="#ffffff"
+        android:layout_gravity="center"
+        android:layout_width="200dp"
         android:layout_height="60dp"
         android:text="집 상태 조회"
         android:textSize="20dp"
@@ -43,7 +54,10 @@
 
     <Button
         android:id="@+id/thingUsageBtn"
-        android:layout_width="match_parent"
+        android:background="@drawable/rounded_rectangle_solid"
+        android:textColor="#ffffff"
+        android:layout_gravity="center"
+        android:layout_width="200dp"
         android:layout_height="60dp"
         android:text="사용량 조회"
         android:textSize="20dp"
@@ -56,9 +70,12 @@
 
     <Button
         android:id="@+id/mirrorModeBtn"
-        android:layout_width="match_parent"
+        android:background="@drawable/rounded_rectangle_solid"
+        android:textColor="#ffffff"
+        android:layout_gravity="center"
+        android:layout_width="200dp"
         android:layout_height="60dp"
-        android:text="스마트미러 모드"
+        android:text="미러 모드"
         android:textSize="20dp"
         />
 
@@ -69,7 +86,10 @@
 
     <Button
         android:id="@+id/addMemoBtn"
-        android:layout_width="match_parent"
+        android:background="@drawable/rounded_rectangle_solid"
+        android:textColor="#ffffff"
+        android:layout_gravity="center"
+        android:layout_width="200dp"
         android:layout_height="60dp"
         android:text="메모 추가"
         android:textSize="20dp"
