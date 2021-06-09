@@ -84,6 +84,7 @@
         android:layout_height="15dp"
         />
 
+
     <Button
         android:id="@+id/addMemoBtn"
         android:background="@drawable/rounded_rectangle_solid"

@@ -49,7 +49,7 @@ public class HomeGasUsageActivity extends AppCompatActivity {
         Intent intent = getIntent();
         getGasLogsURL = intent.getStringExtra("getGasLogsURL");
         Log.i(TAG, "getGasLogsURL="+getGasLogsURL);
-
+/*
         // 일별 실내등 사용 시간 로그 조회
         Button gasDayBtn = findViewById(R.id.gas_day_button);
         gasDayBtn.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +81,7 @@ public class HomeGasUsageActivity extends AppCompatActivity {
                 dialog.show();
             }
         });
-
+*/
         // 월별 실내등 사용 시간 로그 조회
         Button gasMonthBtn = findViewById(R.id.gas_month_button);
         gasMonthBtn.setOnClickListener(new View.OnClickListener() {

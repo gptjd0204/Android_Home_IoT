@@ -26,7 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="DAY 혹은 MONTH를 눌러 날짜를 설정하세요"
+        android:text="MONTH를 눌러 날짜를 설정하세요"
         android:textSize="20dp"
         >
     </TextView>
@@ -38,6 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+        <!--
         <Button
             android:background="@drawable/rounded_rectangle_solid"
             android:textColor="#ffffff"
@@ -51,6 +52,7 @@
         <View
             android:layout_width="20dp"
             android:layout_height="match_parent" />
+         -->
         <Button
             android:background="@drawable/rounded_rectangle_solid"
             android:textColor="#ffffff"
@@ -58,8 +60,21 @@
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_weight="1"
-            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
             android:text="MONTH" />
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent" />
+        <Button
+            android:background="@drawable/rounded_rectangle_v2"
+            android:textColor="#ffffff"
+            android:layout_width="0dp"
+            android:id="@+id/light_log_start_button"
+            android:layout_height="60dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:text="조회" />
 
     </LinearLayout>
 
@@ -123,10 +138,7 @@
         </TableRow>
     </TableLayout>
 
-
-
-
-
+<!--
     <Button
         android:background="@drawable/rounded_rectangle_v2"
         android:textColor="#ffffff"
@@ -137,6 +149,9 @@
         android:textSize="20dp"
         android:textStyle="bold"
         android:text="조회" />
+-->
+
+
     <View
         android:layout_width="match_parent"
         android:layout_height="20dp" />

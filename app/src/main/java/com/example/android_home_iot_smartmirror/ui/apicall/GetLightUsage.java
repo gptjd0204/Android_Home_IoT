@@ -131,7 +131,7 @@ public class GetLightUsage extends GetRequest {
         }
 
         public String toString() {
-            return String.format("%s에 %d번 실내등이 켜졌습니다!", timestamp, light_on);
+            return String.format("%s에 실내등을 %d번 사용했습니다!", timestamp, light_on);
         }
     }
 }

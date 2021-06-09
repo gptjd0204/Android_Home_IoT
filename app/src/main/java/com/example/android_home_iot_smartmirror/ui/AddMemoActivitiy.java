@@ -74,7 +74,8 @@ public class AddMemoActivitiy extends AppCompatActivity {
                 urlStr = "http://" + test1 + ":8080/AddMemo?memoTitle=일정&item=" + test2 +"&level=INFO";
                 new GetMemo(AddMemoActivitiy.this, urlStr).execute();
                 //requestHttpGet(urlStr);
-                Toast.makeText(getApplicationContext(),urlStr, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),urlStr, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"메모가 추가되었습니다", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -100,7 +101,8 @@ public class AddMemoActivitiy extends AppCompatActivity {
                 urlStr = "http://" + test1 + ":8080/RemoveMemo?memoTitle=일정&numbers&item=1";
                 new GetMemo(AddMemoActivitiy.this, urlStr).execute();
                 //requestHttpGet(urlStr);
-                Toast.makeText(getApplicationContext(),urlStr, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),urlStr, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"메모가 삭제되었습니다", Toast.LENGTH_SHORT).show();
             }
         });
 

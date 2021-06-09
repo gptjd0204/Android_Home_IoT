@@ -132,7 +132,7 @@ public class GetGasUsage extends GetRequest {
         }
 
         public String toString() {
-            return String.format("%s에 %d번 가스밸브가 켜졌습니다!", timestamp, gas_on);
+            return String.format("%s에 가스를 %d번 사용했습니다!", timestamp, gas_on);
         }
     }
 }

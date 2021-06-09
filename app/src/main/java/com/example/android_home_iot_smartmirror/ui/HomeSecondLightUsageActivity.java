@@ -43,7 +43,7 @@ public class HomeSecondLightUsageActivity extends AppCompatActivity {
         Intent intent = getIntent();
         getLightLogsURL = intent.getStringExtra("getSecondLightLogsURL");
         Log.i(TAG, "getSecondLightLogsURL="+getLightLogsURL);
-
+/*
         // 일별 실내등 사용 시간 로그 조회
         Button lightDayBtn = findViewById(R.id.light_day_button);
         lightDayBtn.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +72,7 @@ public class HomeSecondLightUsageActivity extends AppCompatActivity {
                 dialog.show();
             }
         });
-
+*/
         // 월별 실내등 사용 시간 로그 조회
         Button lightMonthBtn = findViewById(R.id.light_month_button);
         lightMonthBtn.setOnClickListener(new View.OnClickListener() {
