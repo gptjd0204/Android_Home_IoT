@@ -58,7 +58,31 @@
         </TableRow>
 
     </TableLayout>
--->
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="20dp"
+                android:text="미러 IP 주소: "
+                />
+
+            <TextView
+                android:id="@+id/mirrorIp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="20dp"
+                android:text=""
+                />
+        </TableRow>
+    </TableLayout>
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -74,6 +98,7 @@
         android:layout_span="15"
         android:text="192.168.0.39"
         android:id="@+id/ipAddress"/>
+        -->
     <View
         android:layout_width="match_parent"
         android:layout_height="30dp" />
