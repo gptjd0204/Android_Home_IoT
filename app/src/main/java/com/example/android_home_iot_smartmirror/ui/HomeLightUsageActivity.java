@@ -36,44 +36,15 @@ public class HomeLightUsageActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("거실 실내등 사용량 조회"); //타이틀 없음
+        getSupportActionBar().setTitle("거실 실내등 사용량 조회");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
 
         Intent intent = getIntent();
         getLightLogsURL = intent.getStringExtra("getLightLogsURL");
         Log.i(TAG, "getLightLogsURL="+getLightLogsURL);
 
-/*
-        // 일별 실내등 사용 시간 로그 조회
-        Button lightDayBtn = findViewById(R.id.light_day_button);
-        lightDayBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                callbackMethod = new DatePickerDialog.OnDateSetListener()
-                {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth)
-                    {
 
-                        // 사용자가 입력한 조회 시작 시간과 조회 종료 시간 표시
-                        textView_Date1 = (TextView)findViewById(R.id.textView_light_date1);
-                        textView_Date2 = (TextView)findViewById(R.id.textView_light_date2);
-                        textView_Date1.setText(String.format("%d-%d-%d ", year ,monthOfYear+1,dayOfMonth)+"00:00:00");
-                        textView_Date2.setText(String.format("%d-%d-%d ", year ,monthOfYear+1,dayOfMonth)+ "23:59:59");
-                    }
-                };
-                Calendar calendar = Calendar.getInstance();
-                int year = calendar.get(Calendar.YEAR);
-                int month = calendar.get(Calendar.MONTH);
-                int day = calendar.get(Calendar.DAY_OF_MONTH);
-
-                DatePickerDialog dialog = new DatePickerDialog(HomeLightUsageActivity.this, callbackMethod, year, month, day);
-
-                dialog.show();
-            }
-        });
-*/
-        // 월별 실내등 사용 시간 로그 조회
+        // 월별 거실 실내등 사용량 조회
         Button lightMonthBtn = findViewById(R.id.light_month_button);
         lightMonthBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,7 +72,7 @@ public class HomeLightUsageActivity extends AppCompatActivity {
         });
 
 
-        // 실내등 사용 시간 로그 조회 시작
+        // 거실 실내등 사용량 조회 시작
         Button start = findViewById(R.id.light_log_start_button);
         start.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,7 +84,6 @@ public class HomeLightUsageActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.home_iot_log, menu);
         return true;
@@ -122,9 +92,9 @@ public class HomeLightUsageActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            // 거실 실내등 사용 시간 로그 조회
             case R.id.log_setting:
                 String urlstr = "https://peaypv7rkd.execute-api.ap-northeast-2.amazonaws.com/homeIoT/devices/MyMKR2/firstlightlog";
-
                 Intent intent = new Intent(HomeLightUsageActivity.this, HomeLightLogActivity.class);
                 intent.putExtra("getLightLogsURL", urlstr);
                 startActivity(intent);

@@ -26,8 +26,7 @@ public class GetModeShadow extends GetRequest {
         this.urlStr = urlStr;
     }
 
-    // 충격 감지 상태 조회
-
+    // 현재 스마트 미러 모드 조회
     @Override
     protected void onPreExecute() {
         try {
@@ -49,15 +48,13 @@ public class GetModeShadow extends GetRequest {
         TextView reported_mode = activity.findViewById(R.id.reported_mode);
         ImageView mode_drawable = activity.findViewById(R.id.mode_drawable);
 
-        // 아두이노 디바이스에 상태를 조회하여 가스밸브 상태 조회
+        // 스마트 미러 모드 조회
         if (state.get("reported_MIRROR_MODE").equals("DOOR")){
             mode_drawable.setImageResource(R.drawable.door);
             reported_mode.setText("현관 모드");
-            //reported_mode.setTextColor(Color.parseColor("#17c217"));
         } else {
             mode_drawable.setImageResource(R.drawable.simplemirror);
             reported_mode.setText("심플 모드");
-            //reported_mode.setTextColor(Color.parseColor("#ff0000"));
         }
     }
 

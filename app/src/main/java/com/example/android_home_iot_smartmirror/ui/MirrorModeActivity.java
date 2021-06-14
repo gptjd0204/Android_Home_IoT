@@ -40,7 +40,7 @@ public class MirrorModeActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("미러 모드 변경"); //타이틀 없음
+        getSupportActionBar().setTitle("미러 모드 변경");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
 
         timer = new Timer();
@@ -61,16 +61,16 @@ public class MirrorModeActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.mode_menu_item, menu);
         return true;
     }
 
+    // 모드 변경 설정
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.mode_settings1:
+            case R.id.mode_settings1:   // 현관 모드
                 String edit_mode = "DOOR";
 
                 JSONObject payload = new JSONObject();
@@ -99,9 +99,8 @@ public class MirrorModeActivity extends AppCompatActivity {
                 else
                     Toast.makeText(MirrorModeActivity.this,"변경할 상태 정보 입력이 필요합니다", Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.mode_settings2:
+            case R.id.mode_settings2:   // 심플 모드
                 String edit_mode1 = "FREE";
-
                 JSONObject payload1 = new JSONObject();
 
                 try {

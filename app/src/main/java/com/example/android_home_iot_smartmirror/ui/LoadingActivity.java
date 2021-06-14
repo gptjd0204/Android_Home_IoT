@@ -6,6 +6,7 @@ import android.os.Handler;
 
 import com.example.android_home_iot_smartmirror.R;
 
+// 앱 첫 로딩 창 화면
 public class LoadingActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,11 +1,5 @@
 package com.example.android_home_iot_smartmirror.ui;
 
-/*
-  참고: https://dreamaz.tistory.com/199
-  안드로이드 연도와 월만 선택하는 datepicker 만들기
-
-  연도와 월만 선택하기 위한 DatePickerDialog 설정
- */
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -21,6 +15,7 @@ import com.example.android_home_iot_smartmirror.R;
 
 import java.util.Calendar;
 
+// 년도와 월 선택 DatePickerDialog
 public class MyYearMonthPickerDialog extends DialogFragment {
 
     private static final int MAX_YEAR = 2099;
@@ -73,22 +68,7 @@ public class MyYearMonthPickerDialog extends DialogFragment {
         yearPicker.setMaxValue(MAX_YEAR);
         yearPicker.setValue(year);
 
-        builder.setView(dialog)
-        // Add action buttons
-        /*
-        .setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int id) {
-                listener.onDateSet(null, yearPicker.getValue(), monthPicker.getValue(), 0);
-            }
-        })
-        .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                MyYearMonthPickerDialog.this.getDialog().cancel();
-            }
-        })
-        */
-        ;
+        builder.setView(dialog);
 
         return builder.create();
     }

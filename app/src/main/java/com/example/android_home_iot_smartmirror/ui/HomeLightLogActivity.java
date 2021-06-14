@@ -36,14 +36,14 @@ public class HomeLightLogActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("거실 실내등 로그 조회"); //타이틀 없음
+        getSupportActionBar().setTitle("거실 실내등 로그 조회");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
 
         Intent intent = getIntent();
         getLightLogsURL = intent.getStringExtra("getLightLogsURL");
         Log.i(TAG, "getLightLogsURL="+getLightLogsURL);
 
-        // 일별 실내등 사용 시간 로그 조회
+        // 일별 거실 실내등 사용 시간 로그 조회
         Button lightDayBtn = findViewById(R.id.light_day_button);
         lightDayBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +72,7 @@ public class HomeLightLogActivity extends AppCompatActivity {
             }
         });
 
-        // 월별 실내등 사용 시간 로그 조회
+        // 월별 거실 실내등 사용 시간 로그 조회
         Button lightMonthBtn = findViewById(R.id.light_month_button);
         lightMonthBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,7 +100,7 @@ public class HomeLightLogActivity extends AppCompatActivity {
         });
 
 
-        // 실내등 사용 시간 로그 조회 시작
+        // 거실 실내등 사용 시간 로그 조회 시작
         Button start = findViewById(R.id.light_log_start_button);
         start.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -4,14 +4,12 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -36,14 +34,14 @@ public class HomeGasLogActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("가스 사용 로그 조회"); //타이틀 없음
+        getSupportActionBar().setTitle("가스 사용 로그 조회");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
 
         Intent intent = getIntent();
         getGasLogsURL = intent.getStringExtra("getGasLogsURL");
         Log.i(TAG, "getGasLogsURL="+getGasLogsURL);
 
-        // 일별 실내등 사용 시간 로그 조회
+        // 일별 가스밸브 사용 시간 로그 조회
         Button gasDayBtn = findViewById(R.id.gas_day_button);
         gasDayBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +70,7 @@ public class HomeGasLogActivity extends AppCompatActivity {
             }
         });
 
-        // 월별 실내등 사용 시간 로그 조회
+        // 월별 가스밸브 사용 시간 로그 조회
         Button gasMonthBtn = findViewById(R.id.gas_month_button);
         gasMonthBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,7 +98,7 @@ public class HomeGasLogActivity extends AppCompatActivity {
         });
 
 
-        // 실내등 사용 시간 로그 조회 시작
+        // 가스밸브 사용 시간 로그 조회 시작
         Button start = findViewById(R.id.gas_log_start_button);
         start.setOnClickListener(new View.OnClickListener() {
             @Override

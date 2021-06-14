@@ -26,8 +26,7 @@ public class GetGasShadow extends GetRequest {
         this.urlStr = urlStr;
     }
 
-    // 충격 감지 상태 조회
-
+    // 가스밸브 상태 조회
     @Override
     protected void onPreExecute() {
         try {

@@ -32,13 +32,13 @@ public class GetGasUsage extends GetRequest {
         this.urlStr = urlStr;
     }
 
-    // 충격 발생 시간 로그 조회
+    // 가스밸브 사용량 조회
     @Override
     protected void onPreExecute() {
         try {
             TextView textView_Gas_Date1 = activity.findViewById(R.id.textView_gas_date1);
             TextView textView_Gas_Date2 = activity.findViewById(R.id.textView_gas_date2);
-            // 사용자가 설정한 날짜에 발생한 충격 발생 시간 로그 조회
+            // 사용자가 설정한 날짜에 가스밸브 사용량 조회
             String params = String.format("?from=%s&to=%s",textView_Gas_Date1.getText().toString(),
                     textView_Gas_Date2.getText().toString());
 
@@ -64,7 +64,7 @@ public class GetGasUsage extends GetRequest {
         ArrayList<GetGasUsage.Tag> arrayList = getArrayListFromJSONString(jsonString);
 
 
-        // DynamoDB에 ShockLogging에 있는 데이터를 가져와 표시
+        // 계산된 사용량을 앱 화면에 표시
         final ArrayAdapter adapter = new ArrayAdapter(activity,
                 android.R.layout.simple_list_item_1,
                 arrayList.toArray());
@@ -73,7 +73,7 @@ public class GetGasUsage extends GetRequest {
         txtList.setDividerHeight(10);
     }
 
-    // DynamoDB에 ShockLogging에 있는 데이터를 RestAPI를 이용하여 가져옴
+    // DynamoDB에 있는 데이터를 RestAPI를 이용하여 가져와 사용량 계산
     protected ArrayList<GetGasUsage.Tag> getArrayListFromJSONString(String jsonString) {
         ArrayList<GetGasUsage.Tag> output = new ArrayList();
         try {

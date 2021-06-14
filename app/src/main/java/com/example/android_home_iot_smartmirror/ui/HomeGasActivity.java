@@ -3,8 +3,6 @@ package com.example.android_home_iot_smartmirror.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -30,9 +28,6 @@ public class HomeGasActivity extends AppCompatActivity {
     final static String TAG = "AndroidAPITest";
     Timer timer;
     Toolbar toolbar;
-    //Button startGetBtn;
-    //Button stopGetBtn;
-    //Button homeGetBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +38,7 @@ public class HomeGasActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("가스 밸브 상태"); //타이틀 없음
+        getSupportActionBar().setTitle("가스 밸브 상태");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
 
         timer = new Timer();
@@ -55,7 +50,7 @@ public class HomeGasActivity extends AppCompatActivity {
                        },
                 0,2000);
 
-        // 앱에서 충격 감지 실행 (아두이노 디바이스 제어)
+        // 앱에서 가스밸브 켜기 (아두이노 디바이스 제어)
         Button updateRunBtn = findViewById(R.id.updateRunBtn);
         updateRunBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,7 +85,7 @@ public class HomeGasActivity extends AppCompatActivity {
             }
         });
 
-        // 앱에서 충격 감지 중지 (아두이노 디바이스 제어)
+        // 앱에서 가스밸브 끄기 (아두이노 디바이스 제어)
         Button updateStopBtn = findViewById(R.id.updateStopBtn);
         updateStopBtn.setOnClickListener(new View.OnClickListener() {
             @Override

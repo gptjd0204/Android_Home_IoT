@@ -28,11 +28,11 @@ public class HomeIotActivity extends AppCompatActivity {
         // 툴바 생성
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("홈 IoT 상태 조회"); //타이틀 없음
+        getSupportActionBar().setTitle("홈 IoT 상태 조회");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼
 
 
-        // 홈 상태 조회 및 변경
+        // 홈 상태 조회 및 변경 (거실 실내등)
         Button firstLightShadowBtn = findViewById(R.id.firstLightShadowBtn);
         firstLightShadowBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +51,7 @@ public class HomeIotActivity extends AppCompatActivity {
             }
         });
 
+        // 홈 상태 조회 및 변경 (1번방 실내등)
         Button secondLightShadowBtn = findViewById(R.id.secondLightShadowBtn);
         secondLightShadowBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +68,7 @@ public class HomeIotActivity extends AppCompatActivity {
             }
         });
 
+        // 홈 상태 조회 및 변경 (가스밸브)
         Button gasShadowBtn = findViewById(R.id.gasShadowBtn);
         gasShadowBtn.setOnClickListener(new View.OnClickListener() {
             @Override

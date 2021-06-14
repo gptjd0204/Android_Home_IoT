@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // 홈 IoT 사용량 및 로그 조회
         Button thingUsageBtn = findViewById(R.id.thingUsageBtn);
         thingUsageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // 스마트 미러 모드 변경
         Button mirrorModeBtn = findViewById(R.id.mirrorModeBtn);
         mirrorModeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // 스마트 미러 메모 추가 및 사게
         Button addMemoBtn = findViewById(R.id.addMemoBtn);
         addMemoBtn.setOnClickListener(new View.OnClickListener() {
             @Override

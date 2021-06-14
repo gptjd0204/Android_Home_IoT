@@ -40,7 +40,7 @@ public class HomeFirstLightActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("거실 실내등 상태"); //타이틀 없음
+        getSupportActionBar().setTitle("거실 실내등 상태");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
 
         timer = new Timer();
@@ -52,7 +52,7 @@ public class HomeFirstLightActivity extends AppCompatActivity {
                        },
                 0,2000);
 
-        // 앱에서 충격 감지 실행 (아두이노 디바이스 제어)
+        // 앱에서 거실 실내등 켜기 (아두이노 디바이스 제어)
         Button updateRunBtn = findViewById(R.id.updateRunBtn);
         updateRunBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,7 +87,7 @@ public class HomeFirstLightActivity extends AppCompatActivity {
             }
         });
 
-        // 앱에서 충격 감지 중지 (아두이노 디바이스 제어)
+        // 앱에서 거실 실내등 끄기 (아두이노 디바이스 제어)
         Button updateStopBtn = findViewById(R.id.updateStopBtn);
         updateStopBtn.setOnClickListener(new View.OnClickListener() {
             @Override

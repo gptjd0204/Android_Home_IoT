@@ -27,34 +27,14 @@ public class HomeIotUsageActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("홈 IoT 사용량 조회"); //타이틀 없음
+        getSupportActionBar().setTitle("홈 IoT 사용량 조회");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true만 해도 백버튼이 생김
-/*
-        // 실내등 로그 조회
-        Button lightLogBtn = findViewById(R.id.lightLogBtn);
-        lightLogBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //String urlstr = urlStr.concat("/MyMKR2");
-                //String urlstr = "https://peaypv7rkd.execute-api.ap-northeast-2.amazonaws.com/homeIoT/devices/MyMKR2/log";
-                String urlstr = "https://peaypv7rkd.execute-api.ap-northeast-2.amazonaws.com/homeIoT/devices/MyMKR2/firstlightlog";
-                if (urlstr == null || urlstr.equals("")) {
-                    Toast.makeText(HomeIotUsageActivity.this, "실내등 로그 조회 API URI 입력이 필요합니다.", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                Intent intent = new Intent(HomeIotUsageActivity.this, HomeLightLogActivity.class);
-                intent.putExtra("getLightLogsURL", urlstr);
-                startActivity(intent);
-            }
-        });
-*/
-        // 실내등 사용량 조회
+
+        // 거실 실내등 사용량 조회
         Button lightUsageBtn = findViewById(R.id.lightUsageBtn);
         lightUsageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //String urlstr = urlStr.concat("/MyMKR2");
-                //String urlstr = "https://peaypv7rkd.execute-api.ap-northeast-2.amazonaws.com/homeIoT/devices/MyMKR2/log";
                 String urlstr = "https://peaypv7rkd.execute-api.ap-northeast-2.amazonaws.com/homeIoT/devices/MyMKR2/firstlightlog";
                 if (urlstr == null || urlstr.equals("")) {
                     Toast.makeText(HomeIotUsageActivity.this, "실내등 로그 조회 API URI 입력이 필요합니다.", Toast.LENGTH_SHORT).show();
@@ -65,32 +45,12 @@ public class HomeIotUsageActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-/*
-        // 2번 실내등 로그 조회
-        Button secondLightLogBtn = findViewById(R.id.secondLightLogBtn);
-        secondLightLogBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //String urlstr = urlStr.concat("/MyMKR2");
-                //String urlstr = "https://peaypv7rkd.execute-api.ap-northeast-2.amazonaws.com/homeIoT/devices/MyMKR3/log";
-                String urlstr = "https://peaypv7rkd.execute-api.ap-northeast-2.amazonaws.com/homeIoT/devices/MyMKR3/secondlightlog";
-                if (urlstr == null || urlstr.equals("")) {
-                    Toast.makeText(HomeIotUsageActivity.this, "실내등 로그 조회 API URI 입력이 필요합니다.", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                Intent intent = new Intent(HomeIotUsageActivity.this, HomeSecondLightLogActivity.class);
-                intent.putExtra("getSecondLightLogsURL", urlstr);
-                startActivity(intent);
-            }
-        });
-*/
-        // 2번 실내등 사용량 조회
+
+        // 1번방 실내등 사용량 조회
         Button secondLightUsageBtn = findViewById(R.id.secondLightUsageBtn);
         secondLightUsageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //String urlstr = urlStr.concat("/MyMKR2");
-                //String urlstr = "https://peaypv7rkd.execute-api.ap-northeast-2.amazonaws.com/homeIoT/devices/MyMKR3/log";
                 String urlstr = "https://peaypv7rkd.execute-api.ap-northeast-2.amazonaws.com/homeIoT/devices/MyMKR3/secondlightlog";
                 if (urlstr == null || urlstr.equals("")) {
                     Toast.makeText(HomeIotUsageActivity.this, "실내등 로그 조회 API URI 입력이 필요합니다.", Toast.LENGTH_SHORT).show();
@@ -101,32 +61,12 @@ public class HomeIotUsageActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-/*
-        // 가스 로그 조회
-        Button gasLogBtn = findViewById(R.id.gasLogBtn);
-        gasLogBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //String urlstr = urlStr.concat("/MyMKR2");
-                //String urlstr = "https://peaypv7rkd.execute-api.ap-northeast-2.amazonaws.com/homeIoT/devices/MyMKR1/log";
-                String urlstr = "https://peaypv7rkd.execute-api.ap-northeast-2.amazonaws.com/homeIoT/devices/MyMKR1/gasvalvelog";
-                if (urlstr == null || urlstr.equals("")) {
-                    Toast.makeText(HomeIotUsageActivity.this, "가스밸브 로그 조회 API URI 입력이 필요합니다.", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                Intent intent = new Intent(HomeIotUsageActivity.this, HomeGasLogActivity.class);
-                intent.putExtra("getGasLogsURL", urlstr);
-                startActivity(intent);
-            }
-        });
-*/
-        // 가스 사용량 조회
+
+        // 가스밸브 사용량 조회
         Button gasUsageBtn = findViewById(R.id.gasUsageBtn);
         gasUsageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //String urlstr = urlStr.concat("/MyMKR2");
-                //String urlstr = "https://peaypv7rkd.execute-api.ap-northeast-2.amazonaws.com/homeIoT/devices/MyMKR1/log";
                 String urlstr = "https://peaypv7rkd.execute-api.ap-northeast-2.amazonaws.com/homeIoT/devices/MyMKR1/gasvalvelog";
                 if (urlstr == null || urlstr.equals("")) {
                     Toast.makeText(HomeIotUsageActivity.this, "가스밸브 로그 조회 API URI 입력이 필요합니다.", Toast.LENGTH_SHORT).show();
@@ -139,7 +79,6 @@ public class HomeIotUsageActivity extends AppCompatActivity {
         });
 
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

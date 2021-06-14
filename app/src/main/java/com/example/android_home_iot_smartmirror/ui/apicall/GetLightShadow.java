@@ -26,8 +26,7 @@ public class GetLightShadow extends GetRequest {
         this.urlStr = urlStr;
     }
 
-    // 충격 감지 상태 조회
-
+    // 실내등 상태 조회
     @Override
     protected void onPreExecute() {
         try {
